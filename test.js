@@ -1,10 +1,8 @@
 var timu;
 //上传文件
 {
-fi=document.createElement("input");
-fi.type="file";
-fi.id="file";
-document.body.appendChild(fi);
+fi=$('<input type="file" id="file">');
+fi.prependTo($('body'));
 }
 //事件
 $(document.getElementById("file")).change(function(){
