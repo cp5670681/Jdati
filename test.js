@@ -1,3 +1,4 @@
+var timu;
 //上传文件
 {
 fi=document.createElement("input");
@@ -5,17 +6,20 @@ fi.type="file";
 fi.id="file";
 document.body.appendChild(fi);
 }
+//事件
+$(document.getElementById("file")).change(function(){
+	daoti_zuo();
+})
 //导入题库,做题
-{
-var reader=new FileReader;
-var timu;
-var file=document.getElementById("file").files[0];
-reader.readAsText(file);
-reader.onload=function(e){
-	timu=this.result;
-	main();
-//	console.log(timu.length);
-}
+function daoti_zuo(){
+	var reader=new FileReader;
+	var file=document.getElementById("file").files[0];
+	reader.readAsText(file);
+	reader.onload=function(e){
+		timu=this.result;
+		main();
+	//	console.log(timu.length);
+	}
 }
 //主程序
 function main(){
