@@ -11,7 +11,7 @@ $(document.getElementById("file")).change(function(){
 //导入题库,做题
 function daoti_zuo(){
 	var reader=new FileReader;
-	var file=document.getElementById("file").files[0];
+	var file=$('#file')[0].files[0];
 	reader.readAsText(file);
 	reader.onload=function(e){
 		timu=this.result;
@@ -78,7 +78,7 @@ function sel(i,ans){
 }
 //清空答题记录
 {
-inp=$('input');
+inp=$(':checked');
 for(var i=0;i<inp.length;i++){
 	inp[i].checked=false;
 }
