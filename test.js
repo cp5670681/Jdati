@@ -5,7 +5,7 @@ fi=$('<input type="file" id="file">');
 fi.prependTo($('body'));
 }
 //事件
-$(document.getElementById("file")).change(function(){
+$('#file').change(function(){
 	daoti_zuo();
 })
 //导入题库,做题
@@ -27,7 +27,7 @@ function main(){
 	for(i=0;i<number;i++)
 	{
 		var answer,ans2;
-		txt=text_ti[i].innerText.replace(/(^\s*)|(\s*$)/g, "");
+		txt=text_ti.eq(i).text().replace(/(^\s*)|(\s*$)/g, "");
 		var zuo_you=txt.split(/[（\(]\s*[）\)]/);
 		var zheng=new RegExp(zuo_you[0]+"（\\s*([A-G]+)\\s*）"+zuo_you[1]);
 		answer=timu.match(zheng)
@@ -69,7 +69,7 @@ function letter_number(a){
 }
 //根据答案自动答题
 function sel(i,ans){
-	var xuan=$('div.media-body.well.text-warning').next().next()[i].getElementsByTagName('input');
+	var xuan=$('div.media-body.well.text-warning').next().next().eq(i).find('input');
 	for(var j=0;j<ans.length;j++){
 		if(ans!="0"){
 			xuan[ans[j]-1].click();
@@ -77,9 +77,4 @@ function sel(i,ans){
 	}
 }
 //清空答题记录
-{
-inp=$(':checked');
-for(var i=0;i<inp.length;i++){
-	inp[i].checked=false;
-}
-}
+$(':checked').each(function(){this.checked=false;})
