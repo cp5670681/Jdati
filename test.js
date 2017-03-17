@@ -84,4 +84,4 @@ function sel(i,ans){
 	}
 }
 //清空答题记录
-$(':checked').each(function(){this.checked=false;})
+$(':checked').prop('checked',false);
