@@ -1,3 +1,10 @@
+//取消监控
+clearInterval(1);
+clearInterval(2);
+function examMonitor(){
+	$.noop();
+}
+
 var timu;
 //上传文件
 {
