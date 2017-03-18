@@ -34,7 +34,7 @@ function main(){
 	for(i=0;i<number;i++)
 	{
 		var answer,ans2;
-		txt=text_ti.eq(i).text().replace(/(^\s*)|(\s*$)/g, "");
+		txt=$.trim(text_ti.eq(i).text());
 		var zuo_you=txt.split(/[（\(]\s*[）\)]/);
 		var zheng=new RegExp(zuo_you[0]+"（\\s*([A-G]+)\\s*）"+zuo_you[1]);
 		answer=timu.match(zheng)
