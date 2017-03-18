@@ -25,9 +25,15 @@ function main(){
 		}
 //		sel(i,letter_number(ans2));
 		console.log((i+1)+"."+ans2);
-		var ti=$('div.media-body.well.text-warning:eq('+i+')');
-		$('<span>答案：'+ans2+'</span>').insertAfter(ti.next().next());
+		ti=$('div.media-body.well.text-warning:eq('+i+')');
+		ti.parent().hover(function(){		
+			$('<span>答案：'+ans2+'</span>').appendTo($(this));
+		},function(){
+			$(this).children(':last-child').remove();
+		}
+		)
 	}
+
 	alert("一共"+number+"题，已做 "+ZuoTiNum+" 题。");
 }
 //导入题库,显示
