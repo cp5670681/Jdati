@@ -23,12 +23,11 @@ function main(){
 			ans2=answer[1];
 			ZuoTiNum++;
 		}
-//		sel(i,letter_number(ans2));
 		console.log((i+1)+"."+ans2);
-		var ti=$('div.media-body.well.text-warning:eq('+i+')');
-		$('<span>答案：'+ans2+'</span>').insertAfter(ti.next().next());
+		$('<span>答案：'+ans2+'</span>').appendTo(text_ti.eq(i).parent());
 	}
 	alert("一共"+number+"题，已做 "+ZuoTiNum+" 题。");
+	$('#file').remove();
 }
 //导入题库,显示
 function daoti_zuo(){
